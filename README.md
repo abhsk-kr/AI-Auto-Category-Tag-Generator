@@ -7,6 +7,8 @@ An intelligent product categorization tool that uses **AI (OpenAI GPT-4o-mini)**
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o--mini-412991?logo=openai&logoColor=white)
 
+### 🌐 [Live Demo](https://ai-auto-category-tag-generator-1.onrender.com/)
+
 ---
 
 ## ✨ Features
