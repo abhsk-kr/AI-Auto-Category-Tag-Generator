@@ -15,28 +15,18 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// ── Ensure DB is connected before handling requests ────────
-app.use(async (_req, _res, next) => {
-  try {
-    await connectDB();
-    next();
-  } catch (err) {
-    next(err);
-  }
-});
-
 // ── Routes ─────────────────────────────────────────────────
 app.use('/api/products', productRoutes);
 
-app.get('/api/health', (_req, res) =>
+app.get('/health', (req, res) =>
   res.json({ status: 'ok', timestamp: new Date().toISOString() })
 );
 
-// ── Start server (local dev only, skipped on Vercel) ───────
-if (!process.env.VERCEL) {
+// ── Start ──────────────────────────────────────────────────
+connectDB().then(() => {
   app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
   });
-}
+});
 
 module.exports = app;
